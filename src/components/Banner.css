@@ -1,0 +1,59 @@
+.banner {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    color: var(--white);
+    padding: 60px 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.banner-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.banner-text {
+    flex: 1;
+    max-width: 600px;
+    z-index: 2;
+}
+
+.banner-title {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    line-height: 1.3;
+}
+
+.banner-desc {
+    font-size: 16px;
+    opacity: 0.9;
+    line-height: 1.6;
+}
+
+.banner-image {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+}
+
+.banner-image img {
+    max-width: 100%;
+    height: auto;
+    max-height: 350px;
+    object-fit: contain;
+    /* Add a float animation maybe? */
+}
+
+@media (max-width: 768px) {
+    .banner-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .banner-image {
+        margin-top: 32px;
+        justify-content: center;
+    }
+}

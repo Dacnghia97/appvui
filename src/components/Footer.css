@@ -1,0 +1,194 @@
+.footer {
+    background-color: #1e3a8a;
+    /* Deep blue similar to reference */
+    color: #ffffff;
+    font-size: 14px;
+    padding: 0;
+    width: 100%;
+}
+
+.footer-main {
+    padding: 40px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-left {
+    flex: 1;
+    min-width: 300px;
+}
+
+.footer-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 20px;
+}
+
+.footer-logo {
+    font-size: 32px;
+    font-weight: 800;
+    margin: 0 0 10px 0;
+    background: linear-gradient(90deg, #ffffff, #e0e7ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -1px;
+}
+
+.footer-company-name {
+    font-weight: 700;
+    font-size: 13px;
+    color: #ffffff;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    max-width: 600px;
+    line-height: 1.5;
+}
+
+.footer-info {
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.info-item {
+    margin-bottom: 8px;
+}
+
+.branch-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.branch-list li {
+    padding-left: 16px;
+    position: relative;
+    margin-bottom: 4px;
+}
+
+.branch-list li::before {
+    content: "-";
+    position: absolute;
+    left: 0;
+}
+
+/* Trust Badges */
+.trust-badges {
+    display: flex;
+    gap: 15px;
+}
+
+.badge {
+    background: #ffffff;
+    color: #1e3a8a;
+    padding: 8px 12px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    min-width: 100px;
+    text-align: center;
+}
+
+.meta-badge span {
+    font-size: 16px;
+}
+
+.meta-badge small {
+    font-size: 10px;
+    text-transform: uppercase;
+}
+
+.certified-badge {
+    background: #3b82f6;
+    /* Blue badge */
+    color: white;
+    border: 2px solid white;
+    font-size: 10px;
+    text-transform: uppercase;
+    max-width: 80px;
+    line-height: 1.2;
+}
+
+/* Social Icons */
+.social-icons {
+    display: flex;
+    gap: 10px;
+}
+
+.social-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+.social-icons a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Bottom Bar */
+.footer-bottom {
+    background-color: #172554;
+    /* Darker blue */
+    padding: 15px 0;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.footer-bottom-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: white;
+}
+
+.separator {
+    margin: 0 8px;
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+    }
+
+    .footer-right {
+        align-items: flex-start;
+        margin-top: 20px;
+    }
+
+    .footer-bottom-content {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+}
