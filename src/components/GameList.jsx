@@ -1,49 +1,60 @@
 import React, { useState } from 'react';
-import { Gamepad2, ShoppingBag, Coffee, Zap } from 'lucide-react';
 import './GameList.css';
 
 const games = [
     {
         id: 1,
-        title: "Candy Puzzle King",
-        desc: "Trò chơi xếp kẹo ngọt ngào, thử thách trí tuệ với hàng trăm màn chơi hấp dẫn.",
-        image: "/game1.png",
-        icon: <Coffee size={24} color="#FF9800" />
+        title: "Tạo Link MiniApp Zalo",
+        desc: "Tạo link mở MiniApp Zalo thông minh, tự động nhận diện thiết bị và trình duyệt.",
+        image: "/zalo-miniapp.png"
     },
     {
         id: 2,
-        title: "Zombie Last Stand",
-        desc: "Bảo vệ căn cứ khỏi làn sóng Zombie. Nâng cấp vũ khí và sống sót.",
-        image: "/game2.png",
-        icon: <Zap size={24} color="#F44336" />
+        title: "Game Marketing – Quay Số / Lì Xì",
+        desc: "Tạo minigame marketing để thu data, tăng tương tác và giữ chân khách hàng.",
+        image: "/game-marketing.png"
     },
     {
         id: 3,
-        title: "Farm Tycoon",
-        desc: "Xây dựng nông trại mơ ước, trồng trọt và chăn nuôi thú cưng đáng yêu.",
-        image: "/game1.png", // reusing
-        icon: <Gamepad2 size={24} color="#4CAF50" />
+        title: "Form Thu Lead Tự Động",
+        desc: "Thu thập thông tin khách hàng và đẩy về Google Sheet, CRM, NocoDB, n8n.",
+        image: "/lead-form.png"
     },
     {
         id: 4,
-        title: "Speed Racer 3D",
-        desc: "Đua xe tốc độ cao, chinh phục các đường đua tử thần và trở thành vua tốc độ.",
-        image: "/game2.png", // reusing
-        icon: <Zap size={24} color="#2196F3" />
+        title: "Random Code & Voucher",
+        desc: "Tạo mã tham gia, mã trúng thưởng, quản lý số lượng và tỷ lệ phát thưởng.",
+        image: "/random-code.png"
     },
     {
         id: 5,
-        title: "Space Galaxy",
-        desc: "Phi thuyền không gian chiến đấu chống lại người ngoài hành tinh.",
-        image: "/game1.png", // reusing
-        icon: <Gamepad2 size={24} color="#9C27B0" />
+        title: "Landing Page Nhanh",
+        desc: "Tạo landing page gọn nhẹ, tối ưu chuyển đổi, dùng cho quảng cáo.",
+        image: "/landing-page.png"
     },
     {
         id: 6,
-        title: "Super Bird",
-        desc: "Điều khiển chú chim bay qua các chướng ngại vật. Đơn giản nhưng gây nghiện.",
-        image: "/game2.png", // reusing
-        icon: <ShoppingBag size={24} color="#FF5722" />
+        title: "API Tiện Ích Doanh Nghiệp",
+        desc: "Cung cấp API cho random, xác thực, tracking, webhook, automation.",
+        image: "/api-service.png"
+    },
+    {
+        id: 7,
+        title: "Tạo Thiệp Mời Online",
+        desc: "Tạo thiệp mời sinh nhật, cưới hỏi, khai trương, sự kiện nhanh chóng.",
+        image: "/invitation-card.png"
+    },
+    {
+        id: 8,
+        title: "Lịch Vạn Niên",
+        desc: "Tra cứu lịch âm – dương, ngày tốt xấu, giờ hoàng đạo chính xác và tiện lợi.",
+        image: "/calendar-vannam.png"
+    },
+    {
+        id: 9,
+        title: "Xem Bói Cung Hoàng Đạo",
+        desc: "Xem tử vi, tình cảm, sự nghiệp, tài lộc theo 12 cung hoàng đạo mỗi ngày.",
+        image: "/horoscope.png"
     }
 ];
 
@@ -60,9 +71,10 @@ const GameList = () => {
                     >
                         Tất cả
                     </button>
-                    <button className="tab-item">FnB</button>
-                    <button className="tab-item">e-Commerce</button>
-                    <button className="tab-item">Dịch vụ</button>
+                    <button className="tab-item">Marketing & Automation</button>
+                    <button className="tab-item">Công cụ Web</button>
+                    <button className="tab-item">Tiện ích đời sống</button>
+                    <button className="tab-item">API & Kỹ thuật</button>
                 </div>
 
                 <div className="game-grid">
@@ -73,8 +85,6 @@ const GameList = () => {
                             </div>
                             <div className="card-body">
                                 <div className="card-icon-title">
-                                    {/* Using Icon component directly */}
-                                    {game.icon}
                                     <h3 className="game-title">{game.title}</h3>
                                 </div>
                                 <p className="game-desc">{game.desc}</p>

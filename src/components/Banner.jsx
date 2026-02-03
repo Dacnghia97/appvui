@@ -7,15 +7,16 @@ const Banner = () => {
             <div className="container banner-content">
                 <div className="banner-text">
                     <h1 className="banner-title">
-                        Appvui.vn - Cung cấp Minigame giải trí cho cộng đồng
+                        Appvui.vn – Nền tảng Tiện Ích Số Cho Doanh Nghiệp & Cá Nhân
                     </h1>
                     <p className="banner-desc">
-                        Khám phá kho game đa dạng, hấp dẫn. Trải nghiệm giải trí tuyệt vời ngay trên nền tảng của chúng tôi.
+                        Cung cấp các công cụ trực tuyến giúp tăng hiệu suất làm việc, tự động hóa quy trình và tối ưu trải nghiệm người dùng trên web, Zalo, Facebook và Mobile.
                     </p>
+                    <button className="banner-cta">
+                        Trải nghiệm tiện ích
+                    </button>
                 </div>
-                <div className="banner-image">
-                    <img src="/banner.png" alt="AppVui Banner" />
-                </div>
+
             </div>
         </div>
     );
