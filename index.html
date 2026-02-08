@@ -1,13 +1,601 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>appvui</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<!DOCTYPE html>
+<html class="dark" lang="vi">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link rel="icon" type="image/x-icon" href="assets/AppVui.ico" />
+    <title>AppVui.vn - Kho Ứng Dụng Vui Cho Mọi Cuộc Vui</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1b3da1",
+                        "accent": "#3c8fff",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#0f172a",
+                        "surface-dark": "#1e293b",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer components {
+            .glass-card {
+                @apply bg-slate-800/50 backdrop-blur-xl border border-white/10;
+            }
+            .glow-effect {
+                box-shadow: 0 0 25px rgba(27, 61, 161, 0.3);
+            }
+            .hero-glow {
+                background: radial-gradient(circle at center, rgba(27, 61, 161, 0.25) 0%, transparent 70%);
+            }
+            .app-icon-gradient {
+                @apply flex items-center justify-center rounded-lg bg-gradient-to-br from-accent/20 to-primary/20 text-accent border border-accent/20;
+            }
+            .phone-mockup {
+                @apply relative w-[280px] h-[560px] bg-slate-900 rounded-[3rem] border-[8px] border-slate-800 shadow-2xl overflow-hidden;
+                box-shadow: 0 0 50px rgba(60, 143, 255, 0.15);
+            }
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 selection:bg-primary selection:text-white">
+    <header class="sticky top-0 z-50 w-full bg-background-dark/80 backdrop-blur-md border-b border-white/5">
+        <div class="max-w-[1440px] mx-auto px-6 lg:px-12 flex h-20 items-center justify-between">
+            <a class="block" href="#">
+                <img alt="AppVui.vn Logo" class="h-8 w-auto object-contain" src="assets/AppVui.png" />
+            </a>
+            <nav class="hidden md:flex items-center gap-10">
+                <a class="text-sm font-medium hover:text-accent transition-colors" href="#home">Trang Chủ</a>
+                <a class="text-sm font-medium hover:text-accent transition-colors" href="#apps">Ứng Dụng</a>
+                <a class="text-sm font-medium hover:text-accent transition-colors" href="#about">Đặc Điểm</a>
+                <a class="text-sm font-medium hover:text-accent transition-colors" href="#contact">Liên Hệ</a>
+            </nav>
+            <div class="flex items-center gap-4">
+                <a href="https://www.facebook.com/smax.apps/" target="_blank"
+                    class="hidden lg:flex items-center gap-2 px-6 py-2.5 rounded-full bg-gradient-to-r from-primary to-accent text-white text-sm font-bold shadow-lg shadow-primary/20 hover:scale-105 transition-transform">
+                    <span>Hợp Tác</span>
+                    <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                </a>
+                <button class="md:hidden text-white">
+                    <span class="material-symbols-outlined text-3xl">menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="relative overflow-hidden pt-16 pb-24 lg:pt-32 lg:pb-40" id="home">
+            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full hero-glow -z-10"></div>
+            <div class="max-w-[1440px] mx-auto px-6 lg:px-12 text-center">
+                <div class="flex flex-col gap-8 max-w-4xl mx-auto items-center">
+                    <div
+                        class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/20 border border-primary/30 text-accent text-xs font-bold uppercase tracking-widest">
+                        <span class="flex h-2 w-2 rounded-full bg-accent animate-pulse"></span>
+                        Sản phẩm thuộc SmaxAi - Đối tác phát triển của Zalo MiniApp
+                    </div>
+                    <h1 class="text-3xl lg:text-6xl font-black leading-relaxed tracking-tight text-white">
+                        Ứng Dụng Vui <br /> <span
+                            class="text-transparent bg-clip-text bg-gradient-to-r from-accent to-blue-400">Giải trí -
+                            Tiện ích</span>
+                    </h1>
+                    <p class="text-lg lg:text-xl text-slate-400 leading-relaxed max-w-2xl">
+                        AppVui.vn cung cấp các ứng dụng giải trí và tiện ích trong cuộc sống. Trên nền tảng Zalo MiniApp
+                        mang lại trải nghiệm tương tác mượt mà, dễ dàng sử dụng.
+                    </p>
+
+                    <div class="flex flex-col items-center gap-4 pt-6">
+                        <div class="flex -space-x-3">
+                            <div
+                                class="w-10 h-10 rounded-full border-2 border-background-dark bg-slate-800 flex items-center justify-center overflow-hidden">
+                                <img alt="" class="w-full h-full object-cover"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDN-xGW8Zj6ParPQKqh1JFWJpHJtlF58sQpWfXt9tYgQ9QTF8R071nNqYUpLRx6yV7VVV22THwjctEZQXzzgz27i2yqHG_-j5zkr2P3H4YHVDXXqddwv4Mtljf4usHCR9B6POb3foCASu2vvyfFd4X0Tk8Nj38E_AQ6wWtk2OAkDpatQGCrDXaa3WqSorz-xPiVlc-OcJTxkU43LpLamKRgRVackxGyh65sVKXLK3OYETb3VIsWo8b4sEU1VAtlgV9ErZ5eEqre8zE" />
+                            </div>
+                            <div
+                                class="w-10 h-10 rounded-full border-2 border-background-dark bg-slate-800 flex items-center justify-center overflow-hidden">
+                                <img alt="" class="w-full h-full object-cover"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXmfnuc_7fSallOFtEHRJYXtXRoDNgXMDERbr-j008lqIa89B5MIGVGl6Pk-TP4cwJH2oj5nQNun8WpUPeBVzdvI2NerR294x-qrBigvRSaE9MaQZ0OtrfWrnMoW1B_EeZUawLlWaNSluE0B7bybX5g3Y_goyx0jaLHKXvd7-XrMWLetb_T0aXMoLIroHxtn5kKq3nB_FautySoIayAVOR0ytAkwgr45YKYb9fY9pUEPempZq6ISoYwGI7bjAR1etXsbOQHgzGghc" />
+                            </div>
+                            <div
+                                class="w-10 h-10 rounded-full border-2 border-background-dark bg-slate-800 flex items-center justify-center overflow-hidden">
+                                <img alt="" class="w-full h-full object-cover"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRPcooo2DBLpK2_ogEJ7a9Bv3f75r_Q0xzcxi_XWRRpcf3ae2YF4voJg3Ork5LTNPN_AShhY_33DHYYroWewgGZVW36jEZqwS6bNrNbPLm_tUZ1tvzeecw1911FSPbH86yfAppBZLMt6pz98KaX1UqXvBltDZSePStlYw4UraR9cdeVOOEoyjseRxcP-Vbvye-T6YHbJzRwahGhq8qubUxJawGXVK2-FrOPcyt7Pnw1vETShDoekNbHL1mqeRk4eW4VMsZwsySmAc" />
+                            </div>
+                            <div
+                                class="w-10 h-10 rounded-full border-2 border-background-dark bg-primary flex items-center justify-center text-[10px] font-bold text-white">
+                                +2k
+                            </div>
+                        </div>
+                        <p class="text-sm text-slate-500 font-medium">Joined by 2,000+ active community members</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="py-24 bg-slate-900/50" id="apps">
+            <div class="max-w-[1440px] mx-auto px-6 lg:px-12">
+                <div class="flex flex-col items-center text-center mb-16 gap-4">
+                    <h2 class="text-accent font-bold uppercase tracking-[0.2em] text-sm">Popular Mini Apps</h2>
+                    <h3 class="text-3xl lg:text-4xl font-bold text-white">Ứng Dụng Nổi Bật</h3>
+                    <div class="w-20 h-1.5 bg-primary rounded-full"></div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    <div
+                        class="glass-card rounded-2xl overflow-hidden hover:translate-y-[-8px] hover:glow-effect transition-all duration-300 group flex flex-col">
+                        <div class="aspect-[9/12] relative bg-slate-800 p-6 overflow-hidden">
+                            <div class="absolute inset-0 bg-gradient-to-b from-orange-500/10 to-transparent"></div>
+                            <div
+                                class="w-full h-full border-4 border-slate-700/50 rounded-[2.5rem] overflow-hidden relative shadow-2xl bg-slate-900">
+                                <img alt="Vòng Quay Vui Nhậu"
+                                    class="w-full h-full object-cover object-top group-hover:object-bottom transition-all duration-[3000ms] ease-in-out"
+                                    src="assets/Vong%20Quay%20Vui%20Nhau.png" />
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-8">
+                            <div class="flex items-center gap-3 mb-3">
+                                <span
+                                    class="material-symbols-outlined text-2xl text-orange-400">filter_tilt_shift</span>
+                                <h4 class="text-xl font-bold text-white group-hover:text-accent transition-colors">Vòng
+                                    Quay Vui Nhậu</h4>
+                            </div>
+                            <p class="text-slate-400 text-sm leading-relaxed">Góp phần khuấy động không khí cuộc vui
+                                bằng những những thử thách vui vẻ cùng bạn bè.</p>
+                            <button
+                                class="w-full mt-4 py-3 rounded-xl bg-slate-700/50 hover:bg-primary text-white font-bold transition-all border border-slate-600/50 hover:border-primary/50 flex items-center justify-center gap-2 group/btn">
+                                Truy Cập
+                                <span
+                                    class="material-symbols-outlined text-lg group-hover/btn:translate-x-1 transition-transform">arrow_forward</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div
+                        class="glass-card rounded-2xl overflow-hidden hover:translate-y-[-8px] hover:glow-effect transition-all duration-300 group flex flex-col">
+                        <div class="aspect-[9/12] relative bg-slate-800 p-6 overflow-hidden">
+                            <div class="absolute inset-0 bg-gradient-to-b from-red-500/10 to-transparent"></div>
+                            <div
+                                class="w-full h-full border-4 border-slate-700/50 rounded-[2.5rem] overflow-hidden relative shadow-2xl bg-slate-900">
+                                <img alt="Tạo Lì Xì Đầu Xuân"
+                                    class="w-full h-full object-cover object-top group-hover:object-bottom transition-all duration-[3000ms] ease-in-out"
+                                    src="assets/Li%20Xi%20Dau%20Xuan.png" />
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-8">
+                            <div class="flex items-center gap-3 mb-3">
+                                <span class="material-symbols-outlined text-2xl text-red-500">redeem</span>
+                                <h4 class="text-xl font-bold text-white group-hover:text-accent transition-colors">Tạo
+                                    Lì Xì Đầu Xuân</h4>
+                            </div>
+                            <p class="text-slate-400 text-sm leading-relaxed">Tạo ra những bao lì xì với những lời chúc
+                                may mắn đầu xuân năm mới dành cho người thân, bạn bè.</p>
+                            <button
+                                class="w-full mt-4 py-3 rounded-xl bg-slate-700/50 hover:bg-primary text-white font-bold transition-all border border-slate-600/50 hover:border-primary/50 flex items-center justify-center gap-2 group/btn">
+                                Truy Cập
+                                <span
+                                    class="material-symbols-outlined text-lg group-hover/btn:translate-x-1 transition-transform">arrow_forward</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div
+                        class="glass-card rounded-2xl overflow-hidden hover:translate-y-[-8px] hover:glow-effect transition-all duration-300 group flex flex-col">
+                        <div class="aspect-[9/12] relative bg-slate-800 p-6 overflow-hidden">
+                            <div class="absolute inset-0 bg-gradient-to-b from-purple-500/10 to-transparent"></div>
+                            <div
+                                class="w-full h-full border-4 border-slate-700/50 rounded-[2.5rem] overflow-hidden relative shadow-2xl bg-slate-900">
+                                <img alt="Trò Chơi Ma Sói"
+                                    class="w-full h-full object-cover object-top group-hover:object-bottom transition-all duration-[3000ms] ease-in-out"
+                                    src="assets/Tro%20Choi%20Ma%20Soi.png" />
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-8">
+                            <div class="flex items-center gap-3 mb-3">
+                                <span class="material-symbols-outlined text-2xl text-purple-400">nights_stay</span>
+                                <h4 class="text-xl font-bold text-white group-hover:text-accent transition-colors">Trò
+                                    Chơi Ma Sói</h4>
+                            </div>
+                            <p class="text-slate-400 text-sm leading-relaxed">Ứng dụng dành cho người chơi và quản trò,
+                                giúp dễ dàng quản lý lượt chơi và các phe chơi.</p>
+                            <button
+                                class="w-full mt-4 py-3 rounded-xl bg-slate-700/50 hover:bg-primary text-white font-bold transition-all border border-slate-600/50 hover:border-primary/50 flex items-center justify-center gap-2 group/btn">
+                                Truy Cập
+                                <span
+                                    class="material-symbols-outlined text-lg group-hover/btn:translate-x-1 transition-transform">arrow_forward</span>
+                            </button>
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+            </div>
+        </section>
+        <section class="py-24" id="about">
+            <div class="max-w-[1440px] mx-auto px-6 lg:px-12">
+                <div class="flex flex-col lg:flex-row gap-20 items-center">
+                    <div class="lg:w-[65%] flex flex-col gap-10">
+                        <h2 class="text-2xl lg:text-4xl font-black text-white leading-tight">
+                            Điểm mạnh của MiniApp
+                        </h2>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full">
+                            <!-- Card 1: Không cần cài đặt -->
+                            <div
+                                class="w-full p-4 rounded-[2rem] bg-slate-800/80 border border-slate-700/50 flex items-center gap-4 hover:bg-slate-800 transition-colors group">
+                                <div class="mt-1">
+                                    <span
+                                        class="material-symbols-outlined text-3xl text-blue-500 group-hover:text-accent transition-colors">cloud_off</span>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-bold text-white mb-1">Không cần cài đặt</h3>
+                                    <p class="text-slate-400 text-sm leading-snug">
+                                        Sử dụng ngay không cần tải ứng dụng.
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- Card 2: Không cần đăng ký -->
+                            <div
+                                class="w-full p-4 rounded-[2rem] bg-slate-800/80 border border-slate-700/50 flex items-center gap-4 hover:bg-slate-800 transition-colors group">
+                                <div class="mt-1">
+                                    <span
+                                        class="material-symbols-outlined text-3xl text-blue-500 group-hover:text-accent transition-colors">no_accounts</span>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-bold text-white mb-1">Không cần đăng ký</h3>
+                                    <p class="text-slate-400 text-sm leading-snug">
+                                        Sử dụng ngay trên chính Zalo của bạn..
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- Card 3: Dễ dàng kết nối với QR -->
+                            <div
+                                class="w-full p-4 rounded-[2rem] bg-slate-800/80 border border-slate-700/50 flex items-center gap-4 hover:bg-slate-800 transition-colors group">
+                                <div class="mt-1">
+                                    <span
+                                        class="material-symbols-outlined text-3xl text-blue-500 group-hover:text-accent transition-colors">qr_code_scanner</span>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-bold text-white mb-1">Dễ dàng kết nối với QR</h3>
+                                    <p class="text-slate-400 text-sm leading-snug">
+                                        Quét mã QR kết nối ngay lập tức.
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- Card 4: Chia sẻ bạn bè -->
+                            <div
+                                class="w-full p-4 rounded-[2rem] bg-slate-800/80 border border-slate-700/50 flex items-center gap-4 hover:bg-slate-800 transition-colors group">
+                                <div class="mt-1">
+                                    <span
+                                        class="material-symbols-outlined text-3xl text-blue-500 group-hover:text-accent transition-colors">share</span>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-bold text-white mb-1">Chia sẻ bạn bè</h3>
+                                    <p class="text-slate-400 text-sm leading-snug">
+                                        Mời bạn bè dễ dàng qua link hoặc QR.
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- Card 5: Tương tác nhóm -->
+                            <div
+                                class="w-full p-4 rounded-[2rem] bg-slate-800/80 border border-slate-700/50 flex items-center gap-4 hover:bg-slate-800 transition-colors group">
+                                <div class="mt-1">
+                                    <span
+                                        class="material-symbols-outlined text-3xl text-blue-500 group-hover:text-accent transition-colors">groups</span>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-bold text-white mb-1">Tương tác nhóm</h3>
+                                    <p class="text-slate-400 text-sm leading-snug">
+                                        Tối ưu cho hoạt động nhóm.
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- Card 6: Hệ sinh thái Zalo -->
+                            <div
+                                class="w-full p-4 rounded-[2rem] bg-slate-800/80 border border-slate-700/50 flex items-center gap-4 hover:bg-slate-800 transition-colors group">
+                                <div class="mt-1">
+                                    <span
+                                        class="material-symbols-outlined text-3xl text-blue-500 group-hover:text-accent transition-colors">hub</span>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-bold text-white mb-1">Hệ sinh thái Zalo</h3>
+                                    <p class="text-slate-400 text-sm leading-snug">
+                                        Tận dụng người dùng và hệ sinh thái Zalo.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lg:w-[35%] flex justify-center lg:justify-end relative">
+                        <div class="absolute -inset-10 bg-accent/10 blur-[120px] rounded-full"></div>
+                        <div class="phone-mockup">
+                            <div
+                                class="absolute top-0 left-1/2 -translate-x-1/2 w-28 h-6 bg-slate-800 rounded-b-2xl z-20">
+                            </div>
+                            <div class="h-full w-full bg-[#0f172a] p-6 flex flex-col items-center justify-between">
+                                <div class="mt-12 flex flex-col items-center">
+                                    <div class="relative size-48 mb-10">
+                                        <div
+                                            class="absolute inset-0 rounded-full border-2 border-dashed border-accent/40 animate-[spin_10s_linear_infinite]">
+                                        </div>
+                                        <div
+                                            class="absolute inset-4 rounded-full border-2 border-accent/60 flex items-center justify-center">
+                                            <span
+                                                class="material-symbols-outlined text-4xl text-accent">filter_tilt_shift</span>
+                                        </div>
+                                    </div>
+                                    <h4 class="text-2xl font-bold text-white mb-2">Vòng Quay May Mắn</h4>
+                                    <div class="w-full space-y-4 mt-8">
+                                        <div class="h-10 w-full bg-slate-800/50 rounded-lg flex items-center px-4">
+                                            <div class="size-2 rounded-full bg-green-500 mr-3"></div>
+                                            <div class="h-2 w-32 bg-slate-700 rounded-full"></div>
+                                        </div>
+                                        <div class="h-10 w-full bg-slate-800/50 rounded-lg flex items-center px-4">
+                                            <div class="size-2 rounded-full bg-red-500 mr-3"></div>
+                                            <div class="h-2 w-32 bg-slate-700 rounded-full"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button
+                                    class="w-full py-4 rounded-2xl bg-accent text-white font-black text-lg tracking-wider hover:bg-blue-400 transition-colors shadow-lg shadow-accent/20 mb-4">
+                                    QUAY NGAY
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="py-20 px-6 lg:px-12 max-w-[1440px] mx-auto" id="contact">
+            <div
+                class="bg-gradient-to-br from-primary to-accent rounded-3xl p-12 lg:p-20 text-center relative overflow-hidden group">
+                <div
+                    class="absolute top-0 right-0 p-20 opacity-10 pointer-events-none group-hover:scale-125 transition-transform duration-700">
+                    <span class="material-symbols-outlined text-[200px] text-white">auto_awesome</span>
+                </div>
+                <h2 class="text-3xl lg:text-5xl font-black text-white mb-6 relative z-10">Bắt đầu trải nghiệm ngay hôm
+                    nay!</h2>
+                <p class="text-blue-100 text-lg mb-10 max-w-2xl mx-auto relative z-10">Tham gia cộng đồng và sử dụng
+                    hoàn toàn miễn phí các công cụ giải trí đỉnh cao.</p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4 relative z-10">
+                    <input
+                        class="px-6 py-4 rounded-xl bg-white text-slate-900 border-none w-full sm:max-w-xs focus:ring-4 focus:ring-white/20 outline-none"
+                        placeholder="Email của bạn..." type="email" />
+                    <a href="https://m.me/464315150579692?ref=Support-KinhDoanh" target="_blank"
+                        class="px-8 py-4 rounded-xl bg-slate-900 text-white font-bold hover:bg-slate-800 transition-colors shadow-xl">Đăng
+                        Ký Sớm</a>
+                </div>
+            </div>
+        </section>
+        <section class="py-12 border-t border-white/5 bg-background-dark">
+            <div class="max-w-[1440px] mx-auto px-6 lg:px-12 flex flex-col items-center gap-8">
+                <p class="text-slate-500 text-xs font-bold uppercase tracking-[0.4em] flex items-center gap-2">Hệ sinh
+                    thái <img src="assets/VIK-White.svg" alt="VIK" class="h-4 inline-block mb-1" /> Solution</p>
+                <div class="flex flex-wrap justify-center items-center gap-12 lg:gap-24 transition-all duration-500">
+                    <a href="https://Smax.ai/" target="_blank" class="hover:opacity-80 transition-opacity">
+                        <img alt="Smax.Ai Logo" class="h-8 lg:h-10 w-auto object-contain" src="assets/SmaxAi.svg" />
+                    </a>
+                    <a href="https://App.vn/" target="_blank" class="hover:opacity-80 transition-opacity">
+                        <img alt="App.vn Logo" class="h-8 lg:h-10 w-auto object-contain" src="assets/Appvn.svg" />
+                    </a>
+                    <a href="https://CDP.vn/" target="_blank" class="hover:opacity-80 transition-opacity">
+                        <img alt="CDP.vn Logo" class="h-8 lg:h-10 w-auto object-contain" src="assets/CDP.svg" />
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="bg-black py-16">
+        <div class="max-w-[1440px] mx-auto px-6 lg:px-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                <div class="flex flex-col gap-6">
+                    <a class="block" href="#">
+                        <img alt="AppVui.vn Logo" class="h-8 w-auto object-contain" src="assets/AppVui.png" />
+                    </a>
+                    <p class="text-slate-500 text-sm leading-relaxed">
+                        <span class="font-bold">CÔNG TY TNHH GIẢI PHÁP CÔNG NGHỆ VIK SOLUTION</span><br />
+                        Trụ sở: Tòa A Việt Đức Complex - Thanh Xuân - Hà Nội.<br />
+
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <a class="size-9 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary transition-colors"
+                            href="https://fb.com/smax.apps" target="_blank">
+                            <img alt="Facebook" class="opacity-80" src="assets/FB-icon.png" />
+                        </a>
+                        <a class="size-9 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary transition-colors"
+                            href="https://zalo.me/801541922318536361" target="_blank">
+                            <img alt="Zalo" class="opacity-80" src="assets/ZL-icon.png" />
+                        </a>
+                    </div>
+                </div>
+                <div class="flex flex-col gap-6">
+                    <h4 class="text-white font-bold">Về Chúng Tôi</h4>
+                    <nav class="flex flex-col gap-3">
+                        <a class="text-slate-500 text-sm hover:text-white transition-colors" href="#">Giới thiệu</a>
+                        <a class="text-slate-500 text-sm hover:text-white transition-colors" href="#">Đội ngũ phát
+                            triển</a>
+                        <a class="text-slate-500 text-sm hover:text-white transition-colors" href="#">Chính sách bảo
+                            mật</a>
+                        <a class="text-slate-500 text-sm hover:text-white transition-colors" href="#">Điều khoản dịch
+                            vụ</a>
+                    </nav>
+                </div>
+                <div class="flex flex-col gap-6">
+                    <h4 class="text-white font-bold">Ứng Dụng</h4>
+                    <nav class="flex flex-col gap-3">
+                        <a class="text-slate-500 text-sm hover:text-white transition-colors" href="#">Giải trí &amp;
+                            Board game</a>
+                        <a class="text-slate-500 text-sm hover:text-white transition-colors" href="#">Tiện ích nhóm</a>
+                        <a class="text-slate-500 text-sm hover:text-white transition-colors" href="#">Quản lý sự
+                            kiện</a>
+                        <a class="text-slate-500 text-sm hover:text-white transition-colors" href="#">Tất cả ứng
+                            dụng</a>
+                    </nav>
+                </div>
+                <div class="flex flex-col gap-6">
+                    <h4 class="text-white font-bold">Liên Hệ</h4>
+                    <div class="flex flex-col gap-3">
+                        <p class="text-slate-500 text-sm">
+                            <span class="text-white font-medium flex items-center gap-2"><img src="assets/VIK-White.svg"
+                                    alt="VIK" class="h-5 inline-block" /> Solution</span><br />
+                        </p>
+                        <p class="text-slate-500 text-sm">Email: contact@smax.ai</p>
+                        <p class="text-slate-500 text-sm">Fanpage: fb.com/smax.apps</p>
+                    </div>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-slate-600 text-xs flex items-center gap-1">© 2026 AppVui.vn. Phát triển bởi <img
+                        src="assets/VIK-White.svg" alt="VIK" class="h-3 inline-block" /> Solution.</p>
+                <div class="flex gap-6">
+                    <a class="text-slate-600 text-xs hover:text-white" href="#">Privacy</a>
+                    <a class="text-slate-600 text-xs hover:text-white" href="#">Terms</a>
+                    <a class="text-slate-600 text-xs hover:text-white" href="#">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- QR Code Modal -->
+    <div id="qr-modal" class="fixed inset-0 z-[100] hidden">
+        <div class="absolute inset-0 bg-slate-900/80 backdrop-blur-sm transition-opacity opacity-0"
+            id="qr-modal-backdrop"></div>
+        <div class="absolute inset-0 flex items-center justify-center p-4">
+            <div class="bg-slate-800 border border-slate-700 rounded-3xl p-8 max-w-sm w-full relative transform scale-95 opacity-0 transition-all duration-300 shadow-2xl shadow-black/50"
+                id="qr-modal-content">
+                <button id="close-qr-modal"
+                    class="absolute top-4 right-4 text-slate-400 hover:text-white transition-colors">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+                <div class="flex flex-col items-center text-center gap-6">
+                    <div id="modal-app-icon-container"
+                        class="w-16 h-16 rounded-2xl bg-slate-700 flex items-center justify-center relative overflow-hidden ring-1 ring-white/10">
+                        <span id="modal-app-icon" class="material-symbols-outlined text-4xl">apps</span>
+                    </div>
+
+                    <h3 id="modal-app-name" class="text-xl font-bold text-white leading-snug -mt-2">
+                        Tên Ứng Dụng
+                    </h3>
+
+                    <p class="text-slate-400 text-sm -mt-4">
+                        Quét QR code bằng điện thoại để mở ứng dụng trên Zalo
+                    </p>
+
+                    <div class="bg-white p-4 rounded-xl">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://zalo.me"
+                            alt="QR Code" class="w-48 h-48 block" />
+                    </div>
+
+                    <button
+                        class="w-full py-3 rounded-xl bg-primary hover:bg-primary/90 text-white font-bold transition-colors flex items-center justify-center gap-2">
+                        <span>Mở Zalo</span>
+                        <span class="material-symbols-outlined text-lg">arrow_outward</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const modal = document.getElementById('qr-modal');
+            const backdrop = document.getElementById('qr-modal-backdrop');
+            const content = document.getElementById('qr-modal-content');
+            const closeBtn = document.getElementById('close-qr-modal');
+
+            // Elements to update dynamically
+            const modalIcon = document.getElementById('modal-app-icon');
+            const modalName = document.getElementById('modal-app-name');
+
+            const appButtons = document.querySelectorAll('.group\\/btn');
+
+            function showModal(iconClass, appName) {
+                // Update content
+                modalIcon.className = 'material-symbols-outlined text-4xl ' + iconClass;
+                modalName.textContent = appName;
+
+                modal.classList.remove('hidden');
+                requestAnimationFrame(() => {
+                    backdrop.classList.remove('opacity-0');
+                    content.classList.remove('scale-95', 'opacity-0');
+                    content.classList.add('scale-100', 'opacity-100');
+                });
+            }
+
+            function hideModal() {
+                backdrop.classList.add('opacity-0');
+                content.classList.remove('scale-100', 'opacity-100');
+                content.classList.add('scale-95', 'opacity-0');
+                setTimeout(() => {
+                    modal.classList.add('hidden');
+                }, 300);
+            }
+
+            appButtons.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+
+                    // Find the parent card
+                    const card = btn.closest('.glass-card');
+                    if (card) {
+                        const iconEl = card.querySelector('.material-symbols-outlined');
+                        const nameEl = card.querySelector('h4');
+
+                        if (iconEl && nameEl) {
+                            // Get the icon text (ligature)
+                            modalIcon.textContent = iconEl.textContent;
+
+                            // Get color classes
+                            const colorClasses = Array.from(iconEl.classList)
+                                .filter(cls => cls.startsWith('text-') && cls !== 'text-2xl' && cls !== 'material-symbols-outlined');
+
+                            showModal(colorClasses.join(' '), nameEl.textContent);
+                        }
+                    }
+                });
+            });
+
+            if (closeBtn) closeBtn.addEventListener('click', hideModal);
+            if (backdrop) backdrop.addEventListener('click', hideModal);
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+                    hideModal();
+                }
+            });
+        });
+    </script>
+</body>
+
 </html>
